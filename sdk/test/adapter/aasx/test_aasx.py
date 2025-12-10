@@ -22,19 +22,43 @@ class TestAASXUtils(unittest.TestCase):
     def test_supplementary_file_container(self) -> None:
         container = aasx.DictSupplementaryFileContainer()
         with open(os.path.join(os.path.dirname(__file__), 'TestFile.pdf'), 'rb') as f:
-            new_name = container.add_file("/TestFile.pdf", f, "application/pdf")
+            saved_file_name = container.add_file("/TestFile.pdf", f, "application/pdf")
             # Name should not be modified, since there is no conflict
-            self.assertEqual("/TestFile.pdf", new_name)
+            self.assertEqual("/TestFile.pdf", saved_file_name)
             f.seek(0)
-            container.add_file("/TestFile.pdf", f, "application/pdf")
+            # Add the same file again with the same name
+            same_file_with_same_name = container.add_file("/TestFile.pdf", f, "application/pdf")
         # Name should not be modified, since there is still no conflict
-        self.assertEqual("/TestFile.pdf", new_name)
+        self.assertEqual("/TestFile.pdf", same_file_with_same_name)
 
+        # Add other file with the same name to create a conflict
         with open(__file__, 'rb') as f:
-            new_name = container.add_file("/TestFile.pdf", f, "application/pdf")
+            saved_file_name_2 = container.add_file("/TestFile.pdf", f, "application/pdf")
         # Now, we have a conflict
-        self.assertNotEqual("/TestFile.pdf", new_name)
-        self.assertIn(new_name, container)
+        self.assertNotEqual(saved_file_name, saved_file_name_2)
+        self.assertIn(saved_file_name_2, container)
+
+        # Rename file to a new unique name
+        renamed = container.rename_file(saved_file_name_2, "/RenamedTestFile.pdf")
+        self.assertIn(renamed, container)
+        # Old name should no longer exist
+        self.assertNotIn(saved_file_name_2, container)
+        self.assertEqual(renamed, "/RenamedTestFile.pdf")
+
+        # Renaming to the same name should be no-op
+        renamed_same = container.rename_file(renamed, renamed)
+        self.assertEqual(renamed, renamed_same)
+
+        # Renaming to an existing name should create a conflict
+        renamed_conflict = container.rename_file(renamed, "/TestFile.pdf")
+        self.assertNotEqual(renamed_conflict, "/TestFile.pdf")
+        self.assertIn(renamed_conflict, container)
+
+        # Renaming a non-existing file should raise KeyError
+        with self.assertRaises(KeyError):
+            container.rename_file("/NonExistingFile.pdf", "/AnotherName.pdf")
+
+        new_name = renamed_conflict
 
         # Check metadata
         self.assertEqual("application/pdf", container.get_content_type("/TestFile.pdf"))
