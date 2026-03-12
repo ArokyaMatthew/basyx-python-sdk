@@ -253,14 +253,14 @@ class AASDataCheckerTest(unittest.TestCase):
         rel1 = model.AnnotatedRelationshipElement(id_short='test',
                                                   first=model.ModelReference((
                                                       model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                                value='http://acplt.org/Test_Submodel'),
+                                                                value='http://example.org/Test_Submodel'),
                                                       model.Key(
                                                           type_=model.KeyTypes.PROPERTY,
                                                           value='ExampleProperty'),),
                                                                            model.Property),
                                                   second=model.ModelReference((
                                                       model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                                value='http://acplt.org/Test_Submodel'),
+                                                                value='http://example.org/Test_Submodel'),
                                                       model.Key(type_=model.KeyTypes.PROPERTY,
                                                                 value='ExampleProperty'),),
                                                       model.Property),
@@ -268,13 +268,13 @@ class AASDataCheckerTest(unittest.TestCase):
         rel2 = model.AnnotatedRelationshipElement(id_short='test',
                                                   first=model.ModelReference((
                                                       model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                                value='http://acplt.org/Test_Submodel'),
+                                                                value='http://example.org/Test_Submodel'),
                                                       model.Key(type_=model.KeyTypes.PROPERTY,
                                                                 value='ExampleProperty'),),
                                                       model.Property),
                                                   second=model.ModelReference((
                                                       model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                                value='http://acplt.org/Test_Submodel'),
+                                                                value='http://example.org/Test_Submodel'),
                                                       model.Key(type_=model.KeyTypes.PROPERTY,
                                                                 value='ExampleProperty'),),
                                                       model.Property),

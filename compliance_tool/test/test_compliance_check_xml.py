@@ -120,7 +120,7 @@ class ComplianceToolXmlTest(unittest.TestCase):
         self.assertEqual(Status.SUCCESS, manager.steps[1].status)
         self.assertEqual(Status.FAILED, manager.steps[2].status)
         self.assertEqual('FAILED:       Check if data is equal to example data\n - ERROR: Attribute id_short of '
-                         'AssetAdministrationShell[https://acplt.org/Test_AssetAdministrationShell] must be == '
+                         'AssetAdministrationShell[https://example.org/Test_AssetAdministrationShell] must be == '
                          'TestAssetAdministrationShell (value=\'TestAssetAdministrationShell123\')',
                          manager.format_step(2, verbose_level=1))
 
@@ -169,7 +169,7 @@ class ComplianceToolXmlTest(unittest.TestCase):
         self.assertEqual(Status.SUCCESS, manager.steps[3].status)
         self.assertEqual(Status.FAILED, manager.steps[4].status)
         self.assertEqual('FAILED:       Check if data in files are equal\n - ERROR: Attribute id_short of '
-                         'AssetAdministrationShell[https://acplt.org/Test_AssetAdministrationShell] must be == '
+                         'AssetAdministrationShell[https://example.org/Test_AssetAdministrationShell] must be == '
                          'TestAssetAdministrationShell123 (value=\'TestAssetAdministrationShell\')',
                          manager.format_step(4, verbose_level=1))
 
@@ -182,6 +182,6 @@ class ComplianceToolXmlTest(unittest.TestCase):
         self.assertEqual(Status.SUCCESS, manager.steps[3].status)
         self.assertEqual(Status.FAILED, manager.steps[4].status)
         self.assertEqual('FAILED:       Check if data in files are equal\n - ERROR: Attribute id_short of '
-                         'AssetAdministrationShell[https://acplt.org/Test_AssetAdministrationShell] must be == '
+                         'AssetAdministrationShell[https://example.org/Test_AssetAdministrationShell] must be == '
                          'TestAssetAdministrationShell (value=\'TestAssetAdministrationShell123\')',
                          manager.format_step(4, verbose_level=1))
