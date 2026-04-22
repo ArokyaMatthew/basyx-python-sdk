@@ -1,4 +1,4 @@
-# Copyright (c) 2025 the Eclipse BaSyx Authors
+# Copyright (c) 2026 the Eclipse BaSyx Authors
 #
 # This program and the accompanying materials are made available under the terms of the MIT License, available in
 # the LICENSE file of this project.
@@ -17,10 +17,12 @@ class EntityTest(unittest.TestCase):
             model.Entity("TestEntity", model.EntityType.SELF_MANAGED_ENTITY)
         self.assertEqual("A self-managed entity has to have a globalAssetId or a specificAssetId (Constraint AASd-014)",
                          str(cm.exception))
-        model.Entity("TestEntity", model.EntityType.SELF_MANAGED_ENTITY, global_asset_id="https://example.org/TestAsset")
+        model.Entity("TestEntity", model.EntityType.SELF_MANAGED_ENTITY,
+                     global_asset_id="https://example.org/TestAsset")
         model.Entity("TestEntity", model.EntityType.SELF_MANAGED_ENTITY,
                      specific_asset_id=(model.SpecificAssetId("test", "test"),))
-        model.Entity("TestEntity", model.EntityType.SELF_MANAGED_ENTITY, global_asset_id="https://example.org/TestAsset",
+        model.Entity("TestEntity", model.EntityType.SELF_MANAGED_ENTITY,
+                     global_asset_id="https://example.org/TestAsset",
                      specific_asset_id=(model.SpecificAssetId("test", "test"),))
 
     def test_aasd_014_init_co_managed(self) -> None:

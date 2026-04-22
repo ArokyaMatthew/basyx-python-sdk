@@ -241,7 +241,8 @@ def create_example_submodel() -> model.Submodel:
                                                  'de': 'Beispiel Property Element'}),
         parent=None,
         semantic_id=model.ExternalReference((model.Key(type_=model.KeyTypes.GLOBAL_REFERENCE,
-                                                       value='http://example.org/Properties/ExamplePropertyInOutput'),)),
+                                                       value='http://example.org/Properties/'
+                                                             'ExamplePropertyInOutput'),)),
         qualifier=(),
         extension=(),
         supplemental_semantic_id=(),
@@ -374,7 +375,8 @@ def create_example_asset_administration_shell() -> model.AssetAdministrationShel
         specific_asset_id={model.SpecificAssetId(name="TestKey", value="TestValue",
                                                  external_subject_id=model.ExternalReference(
                                                             (model.Key(type_=model.KeyTypes.GLOBAL_REFERENCE,
-                                                                       value='http://example.org/SpecificAssetId/'),)))},
+                                                                       value='http://example.org/'
+                                                                             'SpecificAssetId/'),)))},
         default_thumbnail=resource)
 
     asset_administration_shell = model.AssetAdministrationShell(

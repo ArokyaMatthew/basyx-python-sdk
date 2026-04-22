@@ -190,7 +190,8 @@ def create_example_submodel_template() -> model.Submodel:
                                                  'de': 'Beispiel Property Element'}),
         parent=None,
         semantic_id=model.ExternalReference((model.Key(type_=model.KeyTypes.GLOBAL_REFERENCE,
-                                                       value='http://example.org/Properties/ExamplePropertyInOutput'),)),
+                                                       value='http://example.org/Properties/'
+                                                             'ExamplePropertyInOutput'),)),
         qualifier=())
 
     submodel_element_operation = model.Operation(
@@ -220,7 +221,8 @@ def create_example_submodel_template() -> model.Submodel:
 
     submodel_element_basic_event_element = model.BasicEventElement(
         id_short='ExampleBasicEventElement',
-        observed=model.ModelReference((model.Key(type_=model.KeyTypes.SUBMODEL, value='http://example.org/Test_Submodel'),
+        observed=model.ModelReference((model.Key(type_=model.KeyTypes.SUBMODEL,
+                                                 value='http://example.org/Test_Submodel'),
                                        model.Key(type_=model.KeyTypes.PROPERTY,
                                                  value='ExampleProperty'),),
                                       model.Property),
@@ -278,8 +280,9 @@ def create_example_submodel_template() -> model.Submodel:
         type_value_list_element=model.SubmodelElementCollection,
         value=(submodel_element_submodel_element_collection, submodel_element_submodel_element_collection_2),
         semantic_id_list_element=model.ExternalReference((model.Key(type_=model.KeyTypes.GLOBAL_REFERENCE,
-                                                                    value='http://example.org/SubmodelElementCollections/'
-                                                                          'ExampleSubmodelElementCollection'),)),
+                                                                    value='http://example.org/'
+                                                                    'SubmodelElementCollections/'
+                                                                    'ExampleSubmodelElementCollection'),)),
         order_relevant=True,
         category='PARAMETER',
         description=model.MultiLanguageTextType({'en-US': 'Example SubmodelElementList object',
@@ -295,7 +298,8 @@ def create_example_submodel_template() -> model.Submodel:
         type_value_list_element=model.Capability,
         value=(),
         semantic_id_list_element=model.ExternalReference((model.Key(type_=model.KeyTypes.GLOBAL_REFERENCE,
-                                                                    value='http://example.org/SubmodelElementCollections/'
+                                                                    value='http://example.org/'
+                                                                    'SubmodelElementCollections/'
                                                                           'ExampleSubmodelElementCollection'),)),
         order_relevant=True,
         category='PARAMETER',

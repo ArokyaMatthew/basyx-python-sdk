@@ -185,7 +185,8 @@ def create_example_asset_identification_submodel() -> model.Submodel:
                                                        template_id='http://example.org/AdministrativeInformation'
                                                                    'Templates/TestAsset/Identification'),
         semantic_id=model.ModelReference((model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                    value='http://example.org/SubmodelTemplates/AssetIdentification'),),
+                                                    value='http://example.org/SubmodelTemplates/'
+                                                    'AssetIdentification'),),
                                          model.Submodel),
         qualifier=(),
         kind=model.ModellingKind.INSTANCE,
@@ -611,7 +612,8 @@ def create_example_submodel() -> model.Submodel:
                                                  'de': 'Beispiel Property Element'}),
         parent=None,
         semantic_id=model.ExternalReference((model.Key(type_=model.KeyTypes.GLOBAL_REFERENCE,
-                                                       value='http://example.org/Properties/ExamplePropertyInOutput'),)),
+                                                       value='http://example.org/Properties/'
+                                                             'ExamplePropertyInOutput'),)),
         qualifier=(),
         extension=(),
         supplemental_semantic_id=(),
@@ -653,7 +655,8 @@ def create_example_submodel() -> model.Submodel:
 
     submodel_element_basic_event_element = model.BasicEventElement(
         id_short='ExampleBasicEventElement',
-        observed=model.ModelReference((model.Key(type_=model.KeyTypes.SUBMODEL, value='http://example.org/Test_Submodel'),
+        observed=model.ModelReference((model.Key(type_=model.KeyTypes.SUBMODEL,
+                                                 value='http://example.org/Test_Submodel'),
                                        model.Key(type_=model.KeyTypes.PROPERTY,
                                                  value='ExampleProperty'),),
                                       model.Property),
@@ -843,15 +846,18 @@ def create_example_asset_administration_shell() -> \
                                                      value='http://example.org/SubmodelTemplates/ExampleSubmodel'),
                                        ))),
                   model.ModelReference((model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                  value='http://example.org/Submodels/Assets/TestAsset/Identification'),),
+                                                  value='http://example.org/Submodels/Assets/'
+                                                        'TestAsset/Identification'),),
                                        model.Submodel,
                                        model.ModelReference((
                                            model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                     value='http://example.org/SubmodelTemplates/AssetIdentification'),),
+                                                     value='http://example.org/SubmodelTemplates/'
+                                                           'AssetIdentification'),),
                                            model.Submodel
                                        )),
                   model.ModelReference((model.Key(type_=model.KeyTypes.SUBMODEL,
-                                                  value='http://example.org/Submodels/Assets/TestAsset/BillOfMaterial'),),
+                                                  value='http://example.org/Submodels/Assets/'
+                                                        'TestAsset/BillOfMaterial'),),
                                        model.Submodel),
                   },
         derived_from=model.ModelReference((model.Key(type_=model.KeyTypes.ASSET_ADMINISTRATION_SHELL,
