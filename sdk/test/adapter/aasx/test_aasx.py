@@ -115,7 +115,7 @@ class AASXWriterTest(unittest.TestCase):
                 with warnings.catch_warnings(record=True) as w:
                     with aasx.AASXWriter(filename) as writer:
                         # TODO test writing multiple AAS
-                        writer.write_aas('https://acplt.org/Test_AssetAdministrationShell',
+                        writer.write_aas('https://example.org/Test_AssetAdministrationShell',
                                          data, files, write_json=write_json)
                         writer.write_core_properties(cp)
 
@@ -171,7 +171,7 @@ class AASXReaderTest(unittest.TestCase):
 
         with aasx.AASXWriter(filename) as writer:
             writer.write_aas(
-                'https://acplt.org/Test_AssetAdministrationShell',
+                'https://example.org/Test_AssetAdministrationShell',
                 data, files, write_json=False
             )
             writer.write_core_properties(cp)
@@ -269,7 +269,7 @@ class AASXWriterReferencedSubmodelsTest(unittest.TestCase):
             id_="Test_AAS",
             asset_information=model.AssetInformation(
                 asset_kind=model.AssetKind.INSTANCE,
-                global_asset_id="http://acplt.org/Test_Asset"
+                global_asset_id="http://example.org/Test_Asset"
             ),
             submodel={model.ModelReference.from_referable(referenced_submodel)}
         )
